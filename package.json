@@ -1,0 +1,12 @@
+{
+  "name": "express-html-js",
+  "version": "1.0.0",
+  "description": "Simple js-engine for Express framework. Vanilla HTML and JS code only and no third party parsers!",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": ["express", "engine", "html"],
+  "author": "aqualxxx <aqualxxx@gmail.com>",
+  "license": "ISC"
+}
