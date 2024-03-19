@@ -4,7 +4,7 @@ Simple js-engine for Express framework. Vanilla HTML and JS code only and no thi
 
 ## Why express-html-js?
 
-Other engines for Express Node.js require you knowledge third party tools and syntax. This package allows you to create html-pages using pure HTML and vanilla JavaScript ES6+. Why not!? ¯\_(ツ)_/¯ 
+Other engines for Express Node.js require from you knowledge third party tools and syntax. This package allows you to create html-pages using pure HTML and vanilla JavaScript ES6+. Why not!? ¯\\_(ツ)_/¯ 
 
 ## Install
 
@@ -12,11 +12,11 @@ Install with [npm](http://github.com/):
 
     > npm install express-html-js
 
-## Contributing / Testing
+## Test example
 
     > npm run test
 
-Then follow the tips in the console
+Then follow the tips in the console window
 
 ## Using
 
@@ -47,12 +47,12 @@ module.exports = (data) => `<!DOCTYPE html>
 const layout = require('./layout');
 module.exports = (data) => {
     data.content = `<h1>${data.title || ''}</h1>
-    <h2>Your topic</h2>
-    ...`;
+    <h2>Your topic</h2>`;
+    //...
     return layout(data);
 };
 ```
-As you see, you can use nested layouts
+As you see, we can use nested layouts. 
 After all you can call render function for any layouts from `views` directory:
 ```js
 app.get("/", (req, res, next) => {
@@ -63,27 +63,29 @@ app.get("/", (req, res, next) => {
 });
 ```
 
-## API tips
+## API usage tips
 
-### egine.list(array, options, callback)
+### engine.list(array, options, callback)
 Will render your list collection with style you choose:
 ```js
+const engine = require('express-html-js');
 const layout = require('./layout');
 module.exports = (data) => {
     data.content = `<h1>${data.title || ''}</h1>
     <h2>My friends:</h2>
-    ` + html.list(data.listData, {type:'ul', className:'test'}, item => `<li>${item}</li>`);
+    ` + engine.list(data.listData, {type:'ul', className:'test'}, item => `<li>${item}</li>`);
     return layout(data);
 };
 ```
-### egine.table(array, options, callback)
+### engine.table(array, options, callback)
 Will render your table collection with style you choose:
 ```js
+const engine = require('express-html-js');
 const layout = require('./layout');
 module.exports = (data) => {
     data.content = `<h1>${data.title || ''}</h1>
     <h2>My friends:</h2>
-    ` + html.table(data.tableData, {
+    ` + engine.table(data.tableData, {
         caption: 'Table caption',
         className: 'test',
         header: ['ID', 'Name']
